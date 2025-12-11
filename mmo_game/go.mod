@@ -10,4 +10,4 @@ require (
 )
 
 //本地依赖模块相互导入的方法,强行为本地模块指定本地路径映射
-replace lwc/zInx => ../zInx/zinx
+replace lwc/zInx => ../zInx

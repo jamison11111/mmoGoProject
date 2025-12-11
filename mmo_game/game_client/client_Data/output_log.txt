@@ -6,37 +6,71 @@ Direct3D:
     Vendor:   ATI
     VRAM:     512 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\goProject\mmo_game\game_client\client_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\goProject\mmo_game\game_client\client_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\goProject\mmo_game\game_client\client_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\goProject\mmo_game\game_client\client_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\Google.Protobuf.dll (this message is harmless)
-Loading D:\goProject\mmo_game\game_client\client_Data\Managed\Google.Protobuf.dll into Unity Child Domain
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\protobuf-net.dll (this message is harmless)
-Loading D:\goProject\mmo_game\game_client\client_Data\Managed\protobuf-net.dll into Unity Child Domain
-- Completed reload, in  0.085 seconds
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\goProject\mmo_game\game_client\client_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 48Hz; virtual: 1920x1080 at 0,0
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\Google.Protobuf.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\Google.Protobuf.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\protobuf-net.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\protobuf-net.dll into Unity Child Domain
+- Completed reload, in  1.006 seconds
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 75Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.071600 ms
+UnloadTime: 0.623800 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 2bb4 -> priority: 1 
-  Thread -> id: 3428 -> priority: 1 
-  Thread -> id: 5e70 -> priority: 1 
-  Thread -> id: 6148 -> priority: 1 
+  Thread -> id: 6234 -> priority: 1 
+  Thread -> id: 4380 -> priority: 1 
+  Thread -> id: 5de0 -> priority: 1 
+  Thread -> id: 7634 -> priority: 1 
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon (TM) 780M Graphics (ID=0x15bf)
+    Vendor:   ATI
+    VRAM:     512 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\Google.Protobuf.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\Google.Protobuf.dll into Unity Child Domain
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\protobuf-net.dll (this message is harmless)
+Loading D:\mmoProject\mmo_game\game_client\client_Data\Managed\protobuf-net.dll into Unity Child Domain
+- Completed reload, in  0.052 seconds
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\mmoProject\mmo_game\game_client\client_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 75Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.782900 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 7ba0 -> priority: 1 
+  Thread -> id: 4d64 -> priority: 1 
+  Thread -> id: 7f40 -> priority: 1 
+  Thread -> id: 41d8 -> priority: 1 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.007100 ms
+UnloadTime: 2.549100 ms
 
 Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 368.
-Total: 0.703900 ms (FindLiveObjects: 0.038100 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.409200 ms  DeleteObjects: 0.244300 ms)
+Total: 0.394400 ms (FindLiveObjects: 0.023300 ms CreateObjectMapping: 0.010400 ms MarkObjects: 0.227700 ms  DeleteObjects: 0.132300 ms)
 
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
  
@@ -54,7 +88,37 @@ PlayerController singleton already created!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-Player: { "pid": 3 }
+Player: { "pid": 1 }
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Start Game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.103900 ms
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 368.
+Total: 0.383200 ms (FindLiveObjects: 0.023600 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.221200 ms  DeleteObjects: 0.127100 ms)
+
+Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Connect: 127.0.0.1:8999
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Connect Suc
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+PlayerController singleton already created!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Player: { "pid": 2 }
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 

@@ -46,7 +46,7 @@ func init() {
 		Host:             "0.0.0.0",
 		MaxConn:          10000,
 		MaxPacketSize:    4096,
-		ConfFilePath:     "D:/goProject/mmo_game/conf/zinx.json",
+		ConfFilePath:     "./conf/zinx.json",
 		WorkerPoolSize:   10,
 		MaxWorkerTaskLen: 1024,
 		MaxMsgChanLen:    55,
