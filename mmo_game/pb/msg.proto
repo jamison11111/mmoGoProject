@@ -1,0 +1,34 @@
+syntax="proto3";
+package pb;
+option csharp_namespace="Pb";//给C#提供的选项,该条语句专门为客户端程序提供,与本服务端应用无关，因为客户端程序代码用c#写的
+option go_package = "./;pb";  
+
+//客户端向服务器发起登录请求,服务端给可客户端分配一个玩家id(此所谓同步客户端玩家id)
+message SyncPid{
+    int32 Pid=1;//这个同步过程的消息只需要携带一个字段,那就是玩家id
+}
+
+//表示玩家位置的proto结构体,其中XYZV分别代表x轴z轴y轴和旋转角度
+message Position{
+    float X=1;
+    float Y=2;
+    float Z=3;
+    float V=4; 
+}
+
+//广播消息协议,有服务端主动发起,根据Tp取值的不同代表不同类型的广播消息,Data字段只会去到其中一个
+message BroadCast{
+    int32 Pid=1;//这条广播发给谁
+    int32 Tp=2;//广播消息的类型字段
+    oneof Data{
+        string Content=3;//世界聊天广播
+        Position P=4;//位置同步广播
+        int32 ActionData=5;//动作提醒广播
+    }
+}
+
+//玩家聊天数据的结构体定义,客户端会发来一个Talk类型的二进制聊天消息
+//服务端反序列化后解析到go结构体里面并对之进行处理然后重新发出去(广播,世界聊天)
+message Talk{
+    string Content=1;
+}
