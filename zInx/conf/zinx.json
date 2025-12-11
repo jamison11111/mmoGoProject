@@ -1,0 +1,11 @@
+{
+    "Name":"lwc server",
+    "Host":"127.0.0.1",
+    "TcpPort":7777,
+    "MaxConn":10,
+    "ConfFilePath":"F:/goProject/zinx/conf/zinx.json",
+	"WorkerPoolSize":10,
+	"MaxWorkerTaskLen":1024,
+    "MaxMsgChanLen":100
+
+}
