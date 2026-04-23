@@ -127,7 +127,7 @@ func (p *Player) Talk(content string) {
 // 本方法用于向周围的玩家广播自己的位置,让他们显示自己
 func (p *Player) SyncSurrounding() {
 	//1.根据自身位置获取视野内玩家的pid集合
-	pids := WorldMgrObj.AoiMgr.GetPIDByPos(p.X, p.Z)
+	pids := WorldMgrObj.AoiMgr.GetPidsByPos(p.X, p.Z)
 	//2.创建一个大小固定但暂无存放对象的玩家切片，将来用于放置视野内玩家对象
 	players := make([]*Player, 0, len(pids))
 	//3.往空切片里放置玩家对象
@@ -172,4 +172,44 @@ func (p *Player) SyncSurrounding() {
 	}
 	//4.3给当前玩家发送需要显示的周围玩家的数据
 	p.SendMsg(202, SyncPlayersMsg)
+}
+
+// 广播玩家位置移动
+func (p *Player) UpdatePos(x float32, y float32, z float32, v float32) {
+	//更新玩家位置信息
+	p.X = x
+	p.Y = y
+	p.Z = z
+	p.V = v
+	//组装protobuf协议,发送位置给周围玩家
+	msg := &pb.BroadCast{
+		Pid: p.Pid,
+		Tp:  4, //广播消息的子类型,表示广播位置变动消息
+		Data: &pb.BroadCast_P{
+			P: &pb.Position{
+				X: p.X,
+				Y: p.Y,
+				Z: p.Z,
+				V: p.V,
+			},
+		},
+	}
+	//获取当前玩家的全部周边玩家
+	players := p.GetSurroundingPlayers()
+	//向周边的每个玩家发送msgId:200,Tp=4的位置广播消息,实现移动位置更新消息
+	for _, player := range players {
+		player.SendMsg(200, msg)
+	}
+}
+
+// 获取当前玩家的全部周边玩家的函数
+func (p *Player) GetSurroundingPlayers() []*Player {
+	//得到当前AOI区域的所有pid
+	pids := WorldMgrObj.AoiMgr.GetPidsByPos(p.X, p.Z)
+	//将这些pid放到对应的player切片中
+	players := make([]*Player, 0, len(pids))
+	for _, pid := range pids {
+		players = append(players, WorldMgrObj.GetPlayerByPid(int32(pid)))
+	}
+	return players
 }

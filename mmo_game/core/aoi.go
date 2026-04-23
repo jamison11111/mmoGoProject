@@ -108,7 +108,7 @@ func (m *AOIManager) GetGIDByPos(x, y float32) int {
 }
 
 // 先求格子序号,再求九宫格,最后再求九宫格内所有的玩家,这些玩家是当前玩家视野可见的
-func (m *AOIManager) GetPIDByPos(x, y float32) (playerIDs []int) {
+func (m *AOIManager) GetPidsByPos(x, y float32) (playerIDs []int) {
 	gID := m.GetGIDByPos(x, y)
 	grids := m.GetSurroundGridsByGid(gID)
 	for _, v := range grids {

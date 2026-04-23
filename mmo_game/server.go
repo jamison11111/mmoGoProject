@@ -34,6 +34,7 @@ func main() {
 
 	//创建一个世界聊天路由器并将其注册到服务器上
 	s.AddRouter(2, &api.WorldChatApi{})
-
+	//注册位置信息广播路由，挂载在服务器上的路由其实就起到相当于时间监听器的作用
+	s.AddRouter(3, &api.MoveApi{})
 	s.Serve()
 }
