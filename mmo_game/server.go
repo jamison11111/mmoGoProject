@@ -29,7 +29,6 @@ func OnConnectionAdd(conn ziface.IConnection) {
 
 // 客户端连接关闭过程hook函数实现
 func OnConnectionLost(conn ziface.IConnection) {
-	fmt.Println("下线了!!!!!!====>")
 	//获取当前连接绑定的pid
 	pid, _ := conn.GetProperty("pid")
 	//根据pid获取玩家对象
