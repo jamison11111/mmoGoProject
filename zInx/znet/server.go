@@ -124,6 +124,6 @@ func (s *Server) CallOnConnStart(conn ziface.IConnection) {
 func (s *Server) CallOnConnStop(conn ziface.IConnection) {
 	if s.OnConnStop != nil {
 		fmt.Println("--->CallOnConnStop....")
-		s.OnConnStart(conn)
+		s.OnConnStop(conn)
 	}
 }

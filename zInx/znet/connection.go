@@ -52,14 +52,14 @@ func (c *Connection) StartReader() {
 		if _, err := io.ReadFull(c.GetTCPConnection(), headData); err != nil { //一直阻塞直到请求头切片读满
 			fmt.Println("read msg head error ", err)
 			c.ExitBuffChan <- true
-			continue
+			return
 		}
 		//拆包(读协议头和读实际数据分开解耦是必要的,解包器只负责读出解包所需字段,具体要怎么利用这些字段由业务层来说了算)
 		msg, err := dp.Unpack(headData)
 		if err != nil {
 			fmt.Println("unpack error ", err)
 			c.ExitBuffChan <- true
-			continue
+			return
 		}
 		var data []byte
 		if msg.GetDataLen() > 0 {
@@ -67,7 +67,7 @@ func (c *Connection) StartReader() {
 			if _, err := io.ReadFull(c.GetTCPConnection(), data); err != nil {
 				fmt.Println("read msg data error ", err)
 				c.ExitBuffChan <- true
-				continue
+				return
 			}
 		}
 		msg.SetData(data) //这里没有和测试脚本一样用断言将接口转为实际的实现类不同，后续可看看是否有影响

@@ -149,22 +149,26 @@ func (p *Player) SyncSurrounding() {
 	}
 	//3.2给视野玩家切片内的每个玩家客户端发送消息200（广播消息），以在他们的视野中显示当前玩家
 	for _, player := range players {
-		player.SendMsg(200, msg)
+		if player != nil {
+			player.SendMsg(200, msg)
+		}
 	}
 	//4.让视野内玩家出现在自己的视野中
 	//4.1制作消息id为202消息（SyncPlayers消息）
 	playersData := make([]*pb.Player, 0, len(players))
 	for _, player := range players {
-		p := &pb.Player{
-			Pid: player.Pid,
-			P: &pb.Position{
-				X: p.X,
-				Y: p.Y,
-				Z: p.Z,
-				V: p.V,
-			},
+		if player != nil {
+			p := &pb.Player{
+				Pid: player.Pid,
+				P: &pb.Position{
+					X: player.X,
+					Y: player.Y,
+					Z: player.Z,
+					V: player.V,
+				},
+			}
+			playersData = append(playersData, p)
 		}
-		playersData = append(playersData, p)
 	}
 	//4.2封装SyncPlayer protobuf消息(消息id为202)
 	SyncPlayersMsg := &pb.SyncPlayers{
