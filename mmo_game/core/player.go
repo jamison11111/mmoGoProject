@@ -213,3 +213,20 @@ func (p *Player) GetSurroundingPlayers() []*Player {
 	}
 	return players
 }
+
+// 玩家下线
+func (p *Player) LostConnection() {
+	//获取九宫格视野内的玩家
+	players := p.GetSurroundingPlayers()
+	//封装msgId为201的下线消息
+	msg := &pb.SyncPid{
+		Pid: p.Pid,
+	}
+	//向视野内消息广播本玩家下线的消息
+	for _, player := range players {
+		player.SendMsg(201, msg)
+	}
+	//世界管理器将当前玩家从AOI网格中移除
+	WorldMgrObj.AoiMgr.RemoveFromGridByPos(int(p.Pid), p.X, p.Z)
+	WorldMgrObj.RemovePlayerByPid(p.Pid)
+}

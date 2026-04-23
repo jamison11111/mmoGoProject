@@ -23,14 +23,29 @@ func OnConnectionAdd(conn ziface.IConnection) {
 	conn.SetProperty("pid", player.Pid)
 	//同步周边玩家上线信息,该函数会使自己出现在周边玩家的视野中（广播200），也会使自己视野可见的玩家出现在自己的视野里（单播消息202）
 	player.SyncSurrounding()
-	fmt.Println("=====>Player pidId= ", player.Pid, " arrive ===")
+	fmt.Println("=====>Player pidId= ", player.Pid, " arrive上线了！ ===")
 
+}
+
+// 客户端连接关闭过程hook函数实现
+func OnConnectionLost(conn ziface.IConnection) {
+	//获取当前连接绑定的pid
+	pid, _ := conn.GetProperty("pid")
+	//根据pid获取玩家对象
+	player := core.WorldMgrObj.GetPlayerByPid(pid.(int32))
+	//调用玩家下线业务函数
+	if pid != nil {
+		player.LostConnection()
+	}
+	fmt.Println("<====玩家", pid, "下线了====>")
 }
 
 func main() {
 	s := znet.NewServer()
 
+	//连接建立前和连接关闭前的hook函数的注册
 	s.SetOnConnStart(OnConnectionAdd)
+	s.SetOnConnStop(OnConnectionLost)
 
 	//创建一个世界聊天路由器并将其注册到服务器上
 	s.AddRouter(2, &api.WorldChatApi{})
