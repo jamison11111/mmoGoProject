@@ -32,3 +32,14 @@ message BroadCast{
 message Talk{
     string Content=1;
 }
+
+//表征一个玩家的结构体需包含两个字段，一个是玩家id，一个是玩家当前位置
+message Player{
+    int32 Pid=1;
+    Position P=2;
+}
+
+//这个结构体表征某玩家视野范围内的其他玩家的集合,repeated关键字可以理解为数组
+message SyncPlayers{
+    repeated Player ps=1;
+}

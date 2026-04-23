@@ -21,6 +21,8 @@ func OnConnectionAdd(conn ziface.IConnection) {
 	core.WorldMgrObj.AddPlayer(player)
 	//将playerid绑定到conn的一个附加属性上
 	conn.SetProperty("pid", player.Pid)
+	//同步周边玩家上线信息,该函数会使自己出现在周边玩家的视野中（广播200），也会使自己视野可见的玩家出现在自己的视野里（单播消息202）
+	player.SyncSurrounding()
 	fmt.Println("=====>Player pidId= ", player.Pid, " arrive ===")
 
 }

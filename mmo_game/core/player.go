@@ -123,3 +123,53 @@ func (p *Player) Talk(content string) {
 		player.SendMsg(200, msg)
 	}
 }
+
+// 本方法用于向周围的玩家广播自己的位置,让他们显示自己
+func (p *Player) SyncSurrounding() {
+	//1.根据自身位置获取视野内玩家的pid集合
+	pids := WorldMgrObj.AoiMgr.GetPIDByPos(p.X, p.Z)
+	//2.创建一个大小固定但暂无存放对象的玩家切片，将来用于放置视野内玩家对象
+	players := make([]*Player, 0, len(pids))
+	//3.往空切片里放置玩家对象
+	for _, pid := range pids {
+		players = append(players, WorldMgrObj.GetPlayerByPid(int32(pid)))
+	}
+	//3.1组装msgId为200的广播消息数据,存放当前玩家的id，位置和消息类型
+	msg := &pb.BroadCast{
+		Pid: p.Pid,
+		Tp:  2, //广播坐标的消息类型
+		Data: &pb.BroadCast_P{
+			P: &pb.Position{
+				X: p.X,
+				Y: p.Y,
+				Z: p.Z,
+				V: p.V,
+			},
+		},
+	}
+	//3.2给视野玩家切片内的每个玩家客户端发送消息200（广播消息），以在他们的视野中显示当前玩家
+	for _, player := range players {
+		player.SendMsg(200, msg)
+	}
+	//4.让视野内玩家出现在自己的视野中
+	//4.1制作消息id为202消息（SyncPlayers消息）
+	playersData := make([]*pb.Player, 0, len(players))
+	for _, player := range players {
+		p := &pb.Player{
+			Pid: player.Pid,
+			P: &pb.Position{
+				X: p.X,
+				Y: p.Y,
+				Z: p.Z,
+				V: p.V,
+			},
+		}
+		playersData = append(playersData, p)
+	}
+	//4.2封装SyncPlayer protobuf消息(消息id为202)
+	SyncPlayersMsg := &pb.SyncPlayers{
+		Ps: playersData[:],
+	}
+	//4.3给当前玩家发送需要显示的周围玩家的数据
+	p.SendMsg(202, SyncPlayersMsg)
+}
