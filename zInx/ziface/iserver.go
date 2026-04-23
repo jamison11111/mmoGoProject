@@ -8,7 +8,7 @@ type IServer interface {
 	Stop()
 	//开启业务服务
 	Serve()
-	//路由功能:给当前服务注册一个业务路由方法,共客户端连接时自定义业务处理逻辑时使用
+	//路由功能:给服务端注册一个业务路由方法,供客户端连接时自定义业务处理逻辑时使用,相当于一个消息监听器
 	AddRouter(msgId uint32, router IRouter)
 	//得到连接管理器
 	GetConnMgr() IConnManager
